@@ -8,12 +8,13 @@ def display_board(board)
   puts " #{board[6]} | #{board[7]} | #{board[8]} "
 end
 
+
 def valid_move?(board, index)
-  if (board[index] == " " || board[index] == "" || board[index] == nil) && index <= 8
-    return true 
-  else 
-    return false 
-  end
+  index.between?(0,8) && !position_taken?(board, index)
+end
+
+def position_taken?(board, index)
+  board[index] != " "
 end
 
 def input_to_index(user_input)
@@ -26,14 +27,6 @@ def move(board, index, players_char = "X")
   return board
 end
 
-
-def position_taken?(board, index)
- if board[index] == " " || board[index] == "" || board[index] == nil
-   return false
- else board[index] == "X" || board[index] == "O"
-   return true
- end
-end
 
 def turn(board)
   input_to_index(position)
