@@ -18,9 +18,8 @@ def position_taken?(board, index)
 end
 
 def input_to_index(user_input)
-  position = user_input.to_i - 1
-  return position
-end 
+  user_input.to_i - 1
+end
 
 def move(board, index, players_char = "X")
   board[index] = players_char
